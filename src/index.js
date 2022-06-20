@@ -25,10 +25,10 @@ function Demo() {
   return <div>&hearts;</div>
 }
 
-function Heart() {
+function Heart(props) {
   return <div>
-    Hello,
+    {props.title}
     <Demo />
   </div>
 }
-TinyReact.render(<Heart />, root)
+TinyReact.render(<Heart title="Hello React" />, root)
