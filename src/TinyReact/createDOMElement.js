@@ -9,6 +9,7 @@ export default function createDOMElement(virtualDOM) {
     newElement = document.createElement(virtualDOM.type)
     updateNodeElement(newElement, virtualDOM)
   }
+  newElement._virtualDOM = virtualDOM
   virtualDOM.children.forEach(child => {
     mountElement(child, newElement)
   })
