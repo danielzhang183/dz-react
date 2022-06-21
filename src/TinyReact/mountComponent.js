@@ -21,8 +21,8 @@ function buildFunctionComponent(virtualDOM) {
 }
 
 function buildClassComponent(virtualDOM) {
-  console.log(virtualDOM)
   const component = new virtualDOM.type(virtualDOM.props || {})
-  console.log(component)
-  return component.render()
+  const nextVirtualDOM = component.render()
+  nextVirtualDOM.component = component
+  return nextVirtualDOM
 }
