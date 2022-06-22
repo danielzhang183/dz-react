@@ -77,6 +77,6 @@ class Alert extends TinyReact.Component {
 }
 TinyReact.render(<Alert name="Dylan" age={18} />, root)
 setTimeout(() => {
-  // TinyReact.render(<Alert name="Daniel" age={20} />, root)
-  TinyReact.render(<Heart title="Daniel" age={20} />, root)
+  TinyReact.render(<Alert name="Daniel" age={20} />, root)
+  // TinyReact.render(<Heart title="Daniel" age={20} />, root)
 }, 2000)
