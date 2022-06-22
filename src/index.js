@@ -61,8 +61,16 @@ class Alert extends TinyReact.Component {
   handleClick() {
     this.setState({ title: 'Changed Title' })
   }
+  componentWillReceiveProps(nextProps) {
+    console.log('componentWillReceiveProps: ', nextProps)
+  }
+  componentWillUpdate() {
+    console.log('componentWillUpdate')
+  }
+  componentDidUpdate() {
+    console.log('componentDidUpdate')
+  }
   render() {
-    console.log(this.state)
     return (
       <div>
         {this.props.name}
