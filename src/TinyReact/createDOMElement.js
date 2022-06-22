@@ -1,5 +1,5 @@
-import mountElement from "./mountElement";
-import updateNodeElement from "./updateNodeElement";
+import mountElement from './mountElement'
+import updateNodeElement from './updateNodeElement'
 
 export default function createDOMElement(virtualDOM) {
   let newElement = null
@@ -10,10 +10,7 @@ export default function createDOMElement(virtualDOM) {
     updateNodeElement(newElement, virtualDOM)
   }
   newElement._virtualDOM = virtualDOM
-  virtualDOM.children.forEach(child => {
-    mountElement(child, newElement)
-  })
-
+  virtualDOM.children.forEach(child => mountElement(child, newElement))
   if (virtualDOM.props?.ref) {
     virtualDOM.props.ref(newElement)
   }

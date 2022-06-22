@@ -22,14 +22,18 @@ export default function updateNodeElement(newElement, virtualDOM, oldVirtualDOM 
   })
 
   Object.keys(oldProps).forEach(propName => {
-    const newPropsValue = newProps[name]
+    const newPropsValue = newProps[propName]
     const oldPropsValue = oldProps[propName]
     if (!newPropsValue) {
       if (/^on/.test(propName)) {
         const eventName = propName.toLocaleLowerCase().slice(2)
         newElement.removeEventListener(eventName, oldPropsValue)
       } else if (propName !== 'children') {
-        newElement.removeAttribute(propName)
+        if (propName === 'value') {
+          newElement.value = ''
+        } else {
+          newElement.removeAttribute(propName)
+        }
       }
     }
   })
