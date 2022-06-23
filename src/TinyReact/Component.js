@@ -31,5 +31,5 @@ export default class Component {
   }
   componentWillUpdate(nextProps, nextState) { }
   componentDidUpdate(prevProps, preState) { }
-  componentWillUpdate() { }
+  componentWillUnmount() { }
 }

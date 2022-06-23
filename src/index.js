@@ -142,15 +142,22 @@ class KeyDemo extends TinyReact.Component {
   handleClick() {
     const newState = JSON.parse(JSON.stringify(this.state))
     // newState.persons.push(newState.persons.shift())
-    newState.persons.splice(1, 0, { id: 0, name: '李逵' })
+    // newState.persons.splice(1, 0, { id: 0, name: '李逵' })
+    newState.persons.pop()
     this.setState(newState)
+  }
+  componentWillUnmount() {
+    console.log('componentWillUnmount')
   }
   render() {
     return (
       <div>
         <ul>
           {this.state.persons.map(person => (
-            <li key={person.id}>{person.name}</li>
+            <li key={person.id}>
+              {person.name}
+              <DemoRef />
+            </li>
           ))}
         </ul>
         <button onClick={this.handleClick}>按钮</button>
